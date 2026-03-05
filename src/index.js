@@ -8,8 +8,19 @@ dotenv.config({path: './.env'});
 
 
 connectDB()
-
-
+.then(() => {                                                                                                      // .then is use to handle the eventual results of promise  ...so agar db connection successful hota h to ye code execute hoga
+    app.listen(process.env.PORT || 8000, () =>{
+        console.log(` server is running at port: $
+            {process.env.PORT}`);
+    })
+    app.on("error", (error) =>{
+            console.log("ERRR:", error);
+            throw error
+        })
+})
+.catch((err) => {
+    console.log("Mongo db connection failed !!!", err);
+})
 
 
 
