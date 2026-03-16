@@ -5,9 +5,12 @@ import { app } from "./app.js";
 
 
 dotenv.config({path: './.env'});
+app.listen(process.env.PORT || 8000,() => {
+    console.log(`App is listening on port ${process.env.PORT}`);
+})
 
 
-
+/*
 connectDB()
 .then(() => {                                                                                                      // .then is use to handle the eventual results of promise  ...so agar db connection successful hota h to ye code execute hoga
     app.listen(process.env.PORT || 8000, () =>{
@@ -22,7 +25,7 @@ connectDB()
     console.log("Mongo db connection failed !!!", err);
 })
 
-
+*/
 
 
 
