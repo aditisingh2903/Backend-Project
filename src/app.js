@@ -21,5 +21,10 @@ app.use(cookieParser());
 import userRouter from "./routes/user.routes.js"
 // routes declartion
 app.use("/api/v1/users", userRouter);  //http://localhost:5000/api/v1/users/register
-
+app.get("/", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "Welcome to the API"
+    })
+})
 export { app };
